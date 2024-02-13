@@ -20,7 +20,7 @@ export class MyCard extends LitElement {
     this.text = "text";
     this.btnText = " ";
     this.btnLink = "link";
-    
+
   }
 
   static get styles() {
@@ -110,7 +110,7 @@ button {
       <div class="container">
       <h1>${this.title}</h1>
      <!-- <img src=${this.img}> -->
-     <meme-maker alt="Cat stalking a small toy" image-url=${this.img} top-text="I bring you" bottom-text="the death">
+     <meme-maker alt="Cat stalking a small toy" image-url=${this.img} top-text="I bring you" bottom-text="the Happy Valley">
 </meme-maker>
       <h2>${this.text}</h2>
       <a href=${this.btnLink} target="_blank"><button>${this.btnText}</button></a>
