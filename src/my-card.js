@@ -20,6 +20,7 @@ export class MyCard extends LitElement {
     this.text = "text";
     this.btnText = " ";
     this.btnLink = "link";
+    
   }
 
   static get styles() {
@@ -27,25 +28,30 @@ export class MyCard extends LitElement {
       :host {
         display: inline-flex;
       }
+
+
+      .container.change-color {
+        background-color: green;
+      }
+
       div {
-  max-width: 400px;
-  min-height: 600px;
-  background-color: navy;
-  color: white;
-  font-size: 20px;
-  font-family: georgia;
-  text-align: center;
-  border: solid 3px white;
-  border-radius: 6px;
-  padding: 16px;
-  margin: 32px 16px;
-}
+          max-width: 400px;
+          min-height: 600px;
+          background-color: navy;
+          color: white;
+          font-size: 20px;
+          font-family: georgia;
+          text-align: center;
+          border: solid 3px white;
+          border-radius: 6px;
+          padding: 16px;
+          margin: 32px 16px;
+      }
 #cardlist {
   display: flex;
 }
-.change-color {
-  background-color: lightskyblue;
-}
+
+
 
 img {
   width: 90%;
@@ -101,14 +107,15 @@ button {
 
   render() {
     return html`
-      <div>
+      <div class="container">
       <h1>${this.title}</h1>
      <!-- <img src=${this.img}> -->
      <meme-maker alt="Cat stalking a small toy" image-url=${this.img} top-text="I bring you" bottom-text="the death">
 </meme-maker>
       <h2>${this.text}</h2>
       <a href=${this.btnLink} target="_blank"><button>${this.btnText}</button></a>
-    </div>`;
+    </div>
+    `;
   }
 
   
