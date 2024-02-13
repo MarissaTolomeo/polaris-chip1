@@ -26,17 +26,105 @@
 <body>
   <h1>polaris-chip</h1>
   <!-- this is going to do whatever the tag's defaults are -->
-  <polaris-chip title="News of Record" link="https://psu.edu/"></polaris-chip>
-  <polaris-chip title="Faculty and Staff"></polaris-chip>
-  <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
-  <polaris-chip title="Grants and donations"></polaris-chip>
+  <polaris-chip></polaris-chip>
+  <!-- this is going to take the tag and change the title -->
+ 
 
   <h1>my-card</h1>
-  <my-card></my-card>
+  <h1>The Different Campuses of Pennsylvania State University</h1>
+  <button class="cardBtn duplicate">Duplicate Card</button>
+  <button class="cardBtn changetitle">Change Title</button>
+  <button class="cardBtn changeimage">Change Image</button>
+  <button class="cardBtn changebg">Change Background</button>
+  <button class="cardBtn delete">Delete Card</button>
+
+
+  <div id ="cardContainer">
+    <my-card title="University Park" 
+    img="https://media.istockphoto.com/id/490826619/photo/penn-state-campus-with-old-main.jpg?s=612x612&w=0&k=20&c=IkjQ5YJKxwRsVBbSQumsiYywWFoAJ1D38O-90n2jx9k=" 
+    text=" Penn State's University Park is better known as main campus, and located in State College Pennsylvania." 
+    btnText="Campus Map" btnLink="https://map.psu.edu/?id=1134#!ct/59509,33177,25403,26748,26749,26750,27255?s/"
+    ></my-card>
+
+    <!-- <my-card title="Altoona" 
+    img= "https://altoona.psu.edu/sites/altoona/files/styles/node_embed/public/altoona2014-67_4.jpg?itok=CiNJnPDF"
+    text=" In central Pennsylvania close to University Park, Penn State Altoona offers the appeal of a small college with the prestige of a major research university." 
+    btnText="Campus Map" btnLink="https://altoona.psu.edu/map"
+    ></my-card>
+
+    <my-card title="Beaver" 
+    img="https://beaver.psu.edu/sites/beaver/files/styles/left_feature_area/public/2021campus-entrance-sign-4x3.jpg?itok=jVuPf4oZ" 
+    text= " Situated on one hundred acres, Penn State Beaver offers several bachelor's degrees, on-campus housing, and varsity sports, all within easy reach of Pittsburgh." 
+    btnText="Campus Map" btnLink="https://beaver.psu.edu/map"
+    ></my-card>
+
+    <my-card title="Behrend" 
+    img="https://www.psu.edu/psu-edu-assets/images/image-gallery/Behrend_LP_Burke_Center_Exterior.jpg" 
+    text=" Located in northwestern Pennsylvania, Penn State Behrend offers undergraduate and graduate degrees, research experiences, on-campus living, and athletics." 
+    btnText="Campus Map" btnLink="https://behrend.psu.edu/map"
+    ></my-card>
+
+    <my-card title="Harrisburg" 
+    img="https://harrisburg.psu.edu/sites/harrisburg/files/styles/left_feature_area/public/visitus_planyourvisit_0.jpg?itok=BHRIpLDT" 
+    text=" Penn State Harrisburg offers undergraduate and graduate programs, internships, research opportunities, award-winning faculty, on-campus housing, and athletics." 
+    btnText="Campus Map" btnLink="https://harrisburg.psu.edu/map"
+    ></my-card> -->
+  </div>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
+  <script>
+
+    document.querySelector(".duplicate").addEventListener("click", (e) => {
+
+      const myCard = document.querySelector("my-card").cloneNode(true);
+      document.querySelector("#cardContainer").appendChild(myCard);
+    });
+    
+    document.querySelector(".changetitle").addEventListener("click", (e) => {
+      const myCard = document.querySelector("my-card");
+      myCard.title = "New title goes here";
+
+    });
+    
+    document.querySelector(".changeimage").addEventListener("click", (e) => {
+      const myCard = document.querySelector("my-card");
+      myCard.img = "https://dgiqkglfef83i.cloudfront.net/images/2023/9/24/DSC_9146.jpg";
+    });
+    document.querySelector(".changebg").addEventListener("click", (e) => {
+      const myCard = document.querySelector("my-card");
+      myCard.;
+    });
+
+  
+
+// document.querySelector (".duplicate"). addEventListener ("click", function (e){
+// const myCard = document. querySelector ("my-card"). cloneNode (true)
+// })
+// document.querySelector(".cardContainer").appendChild (myCard)
+
+// document.querySelector ("#changetitle").addEventListener ("click", function (e){
+// myCard.cardTitle="The Best University Ever!"
+// })
+// document.querySelector ("#changebg").addEventListener("click", function (e){
+// const shadowRoot=myCard.shadowroot
+// myCard.forEach ((card) => {
+//   card.shadowRoot.querySelector("#card-list").classList.toggle("change-color" )
+// })
+// })
+// document.querySelector ("#changeimage").addEventListener("click", function (e){
+// const shadowRoot=myCard.shadowRoot
+// myCard.forEach((card)=>{
+//   card.image="https://dgiqkglfef83i.cloudfront.net/images/2023/9/24/DSC_9146.jpg"
+// })
+// document.querySelector('#delete').addEventListener('click',function(e){
+//   console.log(document.querySelectorAll('my-card').length !== 1) {
+//     document.querySelector('my-card').remove();
+//   }
+// });
+</script>
 </body>
 
 </html>
+
