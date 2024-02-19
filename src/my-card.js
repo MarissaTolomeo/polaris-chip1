@@ -20,6 +20,7 @@ export class MyCard extends LitElement {
     this.text = "text";
     this.btnText = " ";
     this.btnLink = "link";
+    this.fancy = false;
 
   }
 
@@ -127,6 +128,7 @@ button {
       text: { type: String },
       btnText: { type: String },
       btnLink: { type: String },
+      fancy: { type: Boolean, reflect: true }
     };
   }
 }
