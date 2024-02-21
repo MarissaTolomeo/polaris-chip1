@@ -17,28 +17,11 @@ export class CounterApp extends LitElement {
     this.number = 0;
     this.min = 10;
     this.max = 25;
-    this.color = "";
+    this.color = "black";
   }
 
   static get styles() {
     return css`
-
-
-:host([number="21"]).number{
-        color: gray;
-    }
-
-:host([number="18"]).number{
-        color: gray;
-    }
-
-:host([number="10"]).number{
-        color: red;
-    }
-
-:host([number="25"]).number{
-        color: red;
-    }
 
 
   .counter-wrapper {
@@ -107,16 +90,30 @@ makeItRain() {
 }
 
 render() {
+
+  var color = "black";
+  if (this.number === this.min) {
+    color = "red";
+  }
+  if (this.number === this.max) {
+    color = "red";
+  }
+  if (this.number === 18) {
+    color = "gray";
+  }
+  if (this.number === 21) {
+    color = "gray";
+  }
+
     return html`
       <h1>Counter App</h1>
         <div class='counter-wrapper'> 
-        <confetti-container id="confetti"><h2 class="number">${this.number}</h2></confetti-container>
+        <confetti-container  id="confetti"><h2 class="number" style="color:${color}">${this.number}</h2></confetti-container>
           <div class="button-wrapper">
             <button id='button1' @click= "${this.decrease}" ?disabled="${this.min === this.number}" >-</button>
             <button id='button2' @click= "${this.increase}" ?disabled="${this.max === this.number}">+</button>
           </div>
         </div>
-
     `;
   }
 
