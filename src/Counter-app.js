@@ -17,28 +17,65 @@ export class CounterApp extends LitElement {
     this.number = 0;
     this.min = 10;
     this.max = 25;
-
+    this.color = "";
   }
 
   static get styles() {
     return css`
 
-:host([number="16"]).button-wrapper{
-        color: green;
-      }
+
+:host([number="21"]).number{
+        color: gray;
+    }
+
+:host([number="18"]).number{
+        color: gray;
+    }
+
+:host([number="10"]).number{
+        color: red;
+    }
+
+:host([number="25"]).number{
+        color: red;
+    }
+
 
   .counter-wrapper {
           background-color: pink;
-          width: 60px;
+          width: 100px;
           padding: 16px;
           margin: 40px;
+          font-size: 25px;
+          text-align: center;
   }
+
+button {
+  font-size: 20px;
+  font-family: georgia;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 4px 4px 4px;
+}
+
+  button:hover{
+        background-color: gray;
+        border-radius: 10%;
+      }
     `;
     }
+
 
 increase(){
   if (this.number < 25) {
   this.number+=1;
+  }
+}
+
+decrease(){
+  if (this.number > 10) {
+  this.number-=1;
   }
 }
 
@@ -69,17 +106,7 @@ makeItRain() {
   );
 }
 
-
-
-
-decrease(){
-  if (this.number > 10) {
-  this.number-=1;
-  }
-}
-
-
-  render() {
+render() {
     return html`
       <h1>Counter App</h1>
         <div class='counter-wrapper'> 
@@ -89,6 +116,7 @@ decrease(){
             <button id='button2' @click= "${this.increase}" ?disabled="${this.max === this.number}">+</button>
           </div>
         </div>
+
     `;
   }
 
