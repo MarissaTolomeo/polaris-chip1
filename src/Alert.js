@@ -10,43 +10,77 @@ export class Alert extends LitElement {
 
   constructor() {
     super();
-
+    this.severity = "";
+    this.message = "message";
+    this.sticky = false;
   }
+
 
   static get styles() {
     return css`
 
-
-
-    `;
+.sticky{
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        opacity: 1.0;
     }
-
+    
+.alert-wrapper {
+    background-color: pink;
+    font-size: 18 px;
+    display: block;
+    padding: 16px;
+    margin: 16px;
+  }
+  `;
+}
 
 
 render() {
+    var color = "white";
+  
+    if(this.severity === "Notice") {
+        color = "blue";
+    }
+    if(this.severity === "Warning") {
+        color = "yellow";
+    }
+    if(this.severity === "ALERT") {
+        color = "red";
+    }
 
 
-
+    if(this.severity === "Notice") {
+        (this.message) = "Construction beginning next week in State College.";
+    }
+    if(this.severity === "Warning") {
+        (this.message) = "Heavy traffic today, drive with caution.";
+    }
+    if(this.severity === "ALERT") {
+        (this.message) = "School is cancelled today due to weather.";
+    }
+    
     return html`
-      <h1>Counter App</h1>
-        <div class='counter-wrapper'> 
-        <confetti-container  id="confetti"><h2 class="number" style="color:${color}">${this.number}</h2></confetti-container>
+        <div class='alert-wrapper'> 
+        <h2 class="message" style="color:${color}">${this.message}</h2>
           <div class="button-wrapper">
-            <button id='button1' @click= "${this.decrease}" ?disabled="${this.min === this.number}" >-</button>
-            <button id='button2' @click= "${this.increase}" ?disabled="${this.max === this.number}">+</button>
+            <button id='button'></button>
           </div>
         </div>
     `;
   }
-
+    
 
 
   static get properties() {
     return { 
-        
+        issueLevel: { type: String },
+      message: { type: String },
+      sticky: { type: Boolean },
       };
     }
-  }
+}
 
 globalThis.customElements.define(Alert.tag, Alert);
 
