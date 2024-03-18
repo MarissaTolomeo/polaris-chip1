@@ -5,7 +5,7 @@ import { LitElement, html, css } from 'lit';
 export class Alert extends LitElement {
 
   static get tag() {
-    return 'Alert';
+    return 'Alert-tag';
   }
 
   constructor() {
@@ -19,12 +19,12 @@ export class Alert extends LitElement {
   static get styles() {
     return css`
 
-.sticky{
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        opacity: 1.0;
-    }
+:host([sticky]) {
+  position: sticky;
+  top: 0;
+   z-index: 2;
+}
+
     
 .alert-wrapper {
     background-color: pink;
@@ -66,6 +66,7 @@ render() {
         <h2 class="message" style="color:${color}">${this.message}</h2>
           <div class="button-wrapper">
             <button id='button'></button>
+            <slot></slot>
           </div>
         </div>
     `;
