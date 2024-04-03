@@ -1,26 +1,30 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/rpg-character/rpg-character.js";
+import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
+import { RpgCharacter } from '@lrnwebcomponents/rpg-character/rpg-character.js';
 
 
 
-export class Alert extends LitElement {
-
-  static properties = {
+export class haxcms extends DDD {
+    static get tag() {
+        return 'haxcms-party-ui';
+      }
+ 
+      static properties = {
     items: { type: Array },
   }
 
-  static get tag() {
-    return 'UI-tag';
-  }
+  
 
   constructor() {
     super();
         this.icon = "";
-        this.darkMode = false;
+        
   }
 
 
   static get styles() {
-    return css`
+    return [ super.styles,css`
 
 :host {
             display: flex;
@@ -28,11 +32,7 @@ export class Alert extends LitElement {
             padding: 4px;
         }
 
-        :host([darkMode]) .Invite {
-            background-color: black;
-            color: white;
-            border: 3px solid white;
-        }
+    
 
         .Icon {
             height: 30px;
@@ -105,7 +105,16 @@ export class Alert extends LitElement {
         }
     
 
-  `;
+  `];
+}
+makeItRain() {
+    import("@lrnwebcomponents/multiple-choice/lib/confetti-container.js").then(
+        (module) => {
+            setTimeout(() => {
+            this.shadowRoot.querySelector("#confetti").setAttribute("popped", "");
+        }, 0);
+      }
+    );
 }
 
 
@@ -143,4 +152,4 @@ render() {
     }
 }
 
-globalThis.customElements.define(UI.tag, UI);
+globalThis.customElements.define(haxcms.tag,haxcms);
