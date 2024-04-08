@@ -18,7 +18,11 @@ export class haxcms extends DDD {
 
   constructor() {
     super();
-        this.icon = "";
+    this.delete = false;
+    this.changed = false;
+    this.saved = false;
+    this.party = localStorage.getItem("party") != null ? localStorage.getItem("party").split(",") : ["evp5350", "test1234"];
+    this.selectedUser = "";
         
   }
 
@@ -27,82 +31,135 @@ export class haxcms extends DDD {
     return [ super.styles,css`
 
 :host {
-            display: flex;
-            margin: 4px;
-            padding: 4px;
+        display: flex;
+            font-family: "Press Start 2P", system-ui;
         }
-
+        .List {
+                background-color: var(--ddd-theme-default-beaverBlue);
+                min-width: 100vh;
+                height: 620px;
+                padding: var(--ddd-spacing-4);
+                color: white;
+                overflow-y: scroll;
+        }
     
+        .title{
+                font-family: system-ui;
+                text-align: center;
+                color: white;
 
-        .Icon {
-            height: 30px;
-            width: 30px;
-            margin: 8px;
-            padding: 8px;
-            
-        }
+            }
+
+            .username {
+                font-family: system-ui;
+                margin: var(--ddd-spacing-8);
+                padding: var(--ddd-spacing-8);
+                
+            }
+            .userSlot {
+                display: flex;
+                margin-left: var(--ddd-spacing-4);
+                
+            }
+
+            .buttonWrapper {
+                display: flex;
+                margin-left: 0px;
+                
+            }
+            .rules {
+                margin: var(--ddd-spacing-3);
+                padding: var(--ddd-spacing-6);
+                width: 92%;
+                background-color: var(--ddd-theme-default-nittanyNavy);
+
+            }
+
+            .rulesText {
+                font-family: system-ui;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px;
+
+            }
+            .partyDisplay {
+                text-align: left;
+            }
+
+
+
+
         .Invite {
-            background-color: white;
-            text-align: center;
-            height: 100px;
-            width: 100px;
-            margin: 4px;
-            padding: 4px;
-            color: black;
-            font-size: 10px;
-            font-family: georgia;
-            
+            font-family: system-ui;
+                font-size: var(--ddd-font-size-3xs);
+                font-weight: 500;
+                color: blue;
+                min-width: 190px;
+                margin: var(--ddd-spacing-3);
+                padding: var(--ddd-spacing-6);
+                border: var(--ddd-border-sm);
+                border-color: var(--ddd-theme-default-nittanyNavy);
+                background-color: var(--ddd-theme-default-roarMaxlight);
+                position: sticky;
+                left: 55%;
 
         }
-
         .Invite:focus,
         .Invite:hover {
-            background-color: gray;
+            background-color: var(--ddd-theme-default-nittanyNavy);
+                color: var(--ddd-theme-default-roarMaxlight);
+                transform: scale(1.1);
+                transition: 0.3s ease-in-out;
         }
-        .remove {
-            background-color: red;
-            text-align: center;
-            height: 50px;
-            width: 100px;
-            margin: 4px;
-            padding: 4px;
-            color: black;
-            font-size: 10px;
-            font-family: georgia;
-  
 
+
+        .remove {
+            font-family: system-ui;
+            font-size: var(--ddd-font-size-3xs);
+            font-weight: 500;
+            color: blue;
+            min-width: 150px;
+            margin: var(--ddd-spacing-3);
+            padding: var(--ddd-spacing-6);
+            border: var(--ddd-border-sm);
+            border-color: var(--ddd-theme-default-nittanyNavy);
+            background-color: var(--ddd-theme-default-roarMaxlight);
+            position: sticky;
+            left: 90%;
         }
         .remove:focus,
         .remove:hover {
-            background-color: gray;
+            background-color: var(--ddd-theme-default-nittanyNavy);
+            color: var(--ddd-theme-default-roarMaxlight);
+            transform: scale(1.1);
+            transition: 0.3s ease-in-out;
         }
 
+
         .Save {
-            background-color: green;
-            text-align: center;
-            height: 50px;
-            width: 100px;
-            margin: 4px;
-            padding: 4px;
-            color: black;
-            font-size: 10px;
-            font-family: georgia;
+            font-family: system-ui;
+                font-size: var(--ddd-font-size-3xs);
+                font-weight: 500;
+                color: blue;
+                min-width: 190px;
+                margin: var(--ddd-spacing-3);
+                padding: var(--ddd-spacing-6);
+                border: var(--ddd-border-sm);
+                border-color: var(--ddd-theme-default-nittanyNavy);
+                background-color: var(--ddd-theme-default-roarMaxlight);
+                position: sticky;
+                left: 90%;
         }
         .Save:focus,
         .Save:hover {
-            background-color: gray;
+            background-color: var(--ddd-theme-default-nittanyNavy);
+            color: var(--ddd-theme-default-roarMaxlight);
+            transform: scale(1.1);
+            transition: 0.3s ease-in-out;
         }
 
-        .List {
-            display: inline-flex;
-            margin: 4px;
-            padding: 4px;
-            background-color: white;
-            height: 500px;
-            width: 500px;
-            overflow: auto;
-
-        }
+    
+        
     
 
   `];
